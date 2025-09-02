@@ -20,12 +20,12 @@ const Songs = ({ t }) => {
 
     const music = [
         { name: 'ATR', id: 'atr' },
-        { name: 'Toro', id: 'toro' },
+        // { name: 'Toro', id: 'toro' },
         { name: 'La baratija', id: 'la-baratija' },
         { name: 'Prima Facie', id: 'prima-facie' },
         { name: 'Paladar Negro', id: 'paladar-negro' },
-        { name: 'Chino', id: 'chino' },
-        { name: 'La oriental', id: 'la-oriental' },
+        // { name: 'Chino', id: 'chino' },
+        // { name: 'La oriental', id: 'la-oriental' },
         { name: 'Gordito', id: 'gordito' },
     ];
 

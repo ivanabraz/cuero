@@ -11,14 +11,14 @@ const handlePlayClick = (index) => {
 const videos = [
     {
     id: "L5TbO85cRNs",
-    thumbnail: `${process.env.PUBLIC_URL}/images/songsthumbnails/atr.jpg`, // Miniatura personalizada
-    url: "https://www.youtube.com/embed/L5TbO85cRNs?autoplay=1"
+    thumbnail: `${process.env.PUBLIC_URL}/images/songsthumbnails/atr.jpg`,
+    url: "https://www.youtube.com/embed/k-OoXqcHr8k?si=W1aO3CIBDwDGtomL",
     },
     {
     id: "XhyhOUQZ6ho",
-    thumbnail: `${process.env.PUBLIC_URL}/images/songsthumbnails/prima-facie.jpg`, // Miniatura personalizada
-    url: "https://www.youtube.com/embed/XhyhOUQZ6ho?autoplay=1"
-    }
+    thumbnail: `${process.env.PUBLIC_URL}/images/songsthumbnails/prima-facie.jpg`,
+    url: "https://www.youtube.com/embed/hIPAISQlHQU?si=4wpVf86X8zlIT6ee",
+    },
 ];
 
 return (
@@ -32,7 +32,16 @@ return (
         viewport={{ once: true }}
         className="relative aspect-video w-full"
         >
-        {!isVideoPlaying && isVideoPlaying !== index ? (
+        {isVideoPlaying === index ? (
+            <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src={video.url}
+            title={`YouTube video player ${index + 1}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            ></iframe>
+        ) : (
             <div
             className="w-full h-full bg-cover bg-center cursor-pointer"
             style={{ backgroundImage: `url(${video.thumbnail})` }}
@@ -46,15 +55,6 @@ return (
                 />
             </div>
             </div>
-        ) : (
-            <iframe
-            className="absolute top-0 left-0 w-full h-full"
-            src={video.url}
-            title={`YouTube video player ${index + 1}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            ></iframe>
         )}
         </motion.div>
     ))}
