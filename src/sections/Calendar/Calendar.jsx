@@ -3,18 +3,18 @@ import { motion } from "framer-motion";
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import { useTranslation } from 'react-i18next';
 
+const monthMap = {
+    'Enero': 'january', 'Febrero': 'february', 'Marzo': 'march', 'Abril': 'april',
+    'Mayo': 'may', 'Junio': 'june', 'Julio': 'july', 'Agosto': 'august',
+    'Septiembre': 'september', 'Octubre': 'october', 'Noviembre': 'november', 'Diciembre': 'december'
+};
+
 const Calendar = () => {
     const { t, i18n } = useTranslation();
     const [allDates, setAllDates] = useState([]);
     const [visibleDates, setVisibleDates] = useState([]);
     const [showAllDates, setShowAllDates] = useState(false);
     const [loading, setLoading] = useState(true);
-
-    const monthMap = {
-        'Enero': 'january', 'Febrero': 'february', 'Marzo': 'march', 'Abril': 'april',
-        'Mayo': 'may', 'Junio': 'june', 'Julio': 'july', 'Agosto': 'august',
-        'Septiembre': 'september', 'Octubre': 'october', 'Noviembre': 'november', 'Diciembre': 'december'
-    };
 
     const getPlaceColumn = (date) => {
         switch (i18n.language) {
