@@ -3,42 +3,29 @@ import React from "react";
 const Rider = ({ t, isOpen, setIsOpen }) => {
     if (!isOpen) return null;
 
-    // En vez de texto plano, guardamos las KEYS
     const instruments = [
         {
             nameKey: "global.piano",
             img: "/images/rider/piano.png",
-            techKeys: [
-                "global.pianoTech1",
-                "global.pianoTech2",
-            ],
+            techKeys: ["global.pianoTech1", "global.pianoTech2"],
             widthClass: "w-[30%]",
         },
         {
             nameKey: "global.cello",
             img: "/images/rider/cello.png",
-            techKeys: [
-                "global.celloTech1",
-                "global.celloTech2",
-            ],
+            techKeys: ["global.celloTech1", "global.celloTech2"],
             widthClass: "w-[30%]",
         },
         {
             nameKey: "global.bandoneon",
             img: "/images/rider/bandoneon.png",
-            techKeys: [
-                "global.bandoneonTech1",
-                "global.bandoneonTech2",
-            ],
+            techKeys: ["global.bandoneonTech1", "global.bandoneonTech2"],
             widthClass: "w-[30%]",
         },
         {
             nameKey: "global.guitar",
             img: "/images/rider/guitar.png",
-            techKeys: [
-                "global.guitarTech1",
-                "global.guitarTech2",
-            ],
+            techKeys: ["global.guitarTech1", "global.guitarTech2"],
             widthClass: "w-[30%]",
         },
     ];
@@ -67,33 +54,40 @@ const Rider = ({ t, isOpen, setIsOpen }) => {
 
                 {/* Título */}
                 <p className="text-4xl mb-9 uppercase text-center text-black">
-                    {t('global.rider')}
+                    {t("global.rider")}
                 </p>
 
                 {/* Contenido principal */}
                 <div className="text-sm text-black w-full">
                     <div className="relative w-full max-w-3xl mx-auto">
-
-                        {/* Fila de instrumentos */}
+                        {/* Fila de textos de instrumentos */}
                         <div className="flex justify-between items-start">
                             {instruments.map((inst) => (
                                 <div
-                                    key={inst.nameKey}
+                                    key={inst.nameKey + "-text"}
                                     className={`flex flex-col items-center text-center ${inst.widthClass}`}
                                 >
-                                    {/* Texto arriba */}
-                                    <div className="mb-3 px-1"> 
+                                    <div className="mb-3 px-1">
                                         <div className="text-neutral-600 text-sm uppercase">
                                             {t(inst.nameKey)}
                                         </div>
-                                        <div className="text-xs text-neutral-400 leading-snug">
+                                        <div className="text-xs text-neutral-400 leading-snug break-words whitespace-normal">
                                             {inst.techKeys.map((key, i) => (
                                                 <div key={i}>{t(key)}</div>
                                             ))}
                                         </div>
                                     </div>
+                                </div>
+                            ))}
+                        </div>
 
-                                    {/* Imagen */}
+                        {/* Fila de imágenes de instrumentos */}
+                        <div className="flex justify-between items-start">
+                            {instruments.map((inst) => (
+                                <div
+                                    key={inst.nameKey + "-img"}
+                                    className={`flex flex-col items-center text-center ${inst.widthClass}`}
+                                >
                                     <img
                                         src={inst.img}
                                         alt={t(inst.nameKey)}
@@ -110,7 +104,7 @@ const Rider = ({ t, isOpen, setIsOpen }) => {
                                 alt="Monitors"
                                 className="w-40 h-auto mb-1"
                             />
-                            <div className="text-xs text-neutral-400 mt-1 text-center leading-snug">
+                            <div className="text-xs text-neutral-400 mt-1 text-center leading-snug break-words whitespace-normal">
                                 {t(monitors.captionKey)}
                             </div>
                         </div>
