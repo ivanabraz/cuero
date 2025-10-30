@@ -16,6 +16,16 @@
         "swipeSong": "Wische für mehr",
 
         "rider": "Technischer Rider",
+        "pianoTech1": "2 Weitbereich-Mikrofone", 
+        "pianoTech2": "Two full spectrum microphones (si querés dejar solo una línea en DE podés repetir o dejar vacía en cada idioma)",
+        "celloTech1": "Best: contact condenser microphone (DPA)",
+        "celloTech2": "Medium: Shure 57",
+        "bandoneonTech1": "1 Mikrofon pro Hand",
+        "bandoneonTech2": "Shure 57 (links) / Shure 58 (rechts)",
+        "guitarTech1": "Klarer Verstärker mit Hall (ähnlich Jazz Chorus)",
+        "guitarTech2": "+ Shure 57 Mikrofon",
+        "monitorsCaption": "Mindestens 2 Bühnenmonitore / Two minimum return monitors",
+        
         "instruments": "Instrumente",
         "requirements": "Anforderungen",
         "piano": "Klavier",

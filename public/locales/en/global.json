@@ -16,6 +16,17 @@
         "swipeSong":"Swipe for more",
 
         "rider": "Technical rider",
+
+        "pianoTech1": "Two full spectrum microphones",
+        "pianoTech2": "",
+        "celloTech1": "Best: contact condenser microphone (DPA)",
+        "celloTech2": "Medium: Shure 57",
+        "bandoneonTech1": "One microphone per hand",
+        "bandoneonTech2": "Shure 57 (left) / Shure 58 (right)",
+        "guitarTech1": "Clean amp with reverb (like Jazz Chorus)",
+        "guitarTech2": "+ Shure 57 microphone",
+        "monitorsCaption": "Two minimum return monitors",
+
         "instruments": "Instruments",
         "requirements": "Requirements",
         "piano": "Piano",

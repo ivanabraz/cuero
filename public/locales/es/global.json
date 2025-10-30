@@ -16,6 +16,16 @@
         "swipeSong": "Desliza para más",
 
         "rider":"Rider técnico",
+        "pianoTech1": "Dos micrófonos de espectro completo",
+        "pianoTech2": "",
+        "celloTech1": "Mejor: micrófono de contacto condensador (DPA)",
+        "celloTech2": "Alternativa: Shure 57",
+        "bandoneonTech1": "Un micrófono por mano",
+        "bandoneonTech2": "Shure 57 (izquierda) / Shure 58 (derecha)",
+        "guitarTech1": "Amplificador limpio con reverb (tipo Jazz Chorus)",
+        "guitarTech2": "+ Micrófono Shure 57",
+        "monitorsCaption": "Dos monitores de retorno como mínimo",
+
         "instruments":"Instrumentos",
         "requirements":"Requerimientos",
         "piano":"Piano",
