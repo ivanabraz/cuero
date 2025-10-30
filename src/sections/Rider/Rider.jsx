@@ -82,7 +82,7 @@ const Rider = ({ t, isOpen, setIsOpen }) => {
                                     className={`flex flex-col items-center text-center ${inst.widthClass}`}
                                 >
                                     {/* Texto arriba */}
-                                    <div className="mb-3 px-3 xs:px-1 sm:px-2"> 
+                                    <div className="mb-3 px-1"> 
                                         <div className="text-neutral-600 text-sm uppercase">
                                             {t(inst.nameKey)}
                                         </div>
