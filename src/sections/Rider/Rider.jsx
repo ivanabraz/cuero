@@ -7,25 +7,21 @@ const Rider = ({ t }) => {
             nameKey: "global.piano",
             img: "/images/rider/piano.png",
             techKeys: ["global.pianoTech1", "global.pianoTech2"],
-            widthClass: "w-[30%]",
         },
         {
             nameKey: "global.cello",
             img: "/images/rider/cello.png",
             techKeys: ["global.celloTech1", "global.celloTech2"],
-            widthClass: "w-[30%]",
         },
         {
             nameKey: "global.bandoneon",
             img: "/images/rider/bandoneon.png",
             techKeys: ["global.bandoneonTech1", "global.bandoneonTech2"],
-            widthClass: "w-[30%]",
         },
         {
             nameKey: "global.guitar",
             img: "/images/rider/guitar.png",
             techKeys: ["global.guitarTech1", "global.guitarTech2"],
-            widthClass: "w-[30%]",
         },
     ];
 
@@ -60,11 +56,11 @@ const Rider = ({ t }) => {
             >
                 <div className="relative w-full max-w-3xl mx-auto px-5">
                     {/* fila textos instrumentos */}
-                    <div className="flex flex-wrap justify-between items-start">
+                    <div className="flex justify-between items-start flex-wrap">
                         {instruments.map((inst) => (
                             <div
                                 key={inst.nameKey + "-text"}
-                                className={`flex flex-col items-center text-center ${inst.widthClass} min-w-[140px] flex-1`}
+                                className="flex flex-col items-center text-center w-[24%]"
                             >
                                 <div className="mb-3 px-1">
                                     <div className="text-neutral-600 text-sm uppercase">
@@ -81,16 +77,16 @@ const Rider = ({ t }) => {
                     </div>
 
                     {/* fila imágenes instrumentos */}
-                    <div className="flex flex-wrap justify-between items-start">
+                    <div className="flex justify-between items-start flex-wrap">
                         {instruments.map((inst) => (
                             <div
                                 key={inst.nameKey + "-img"}
-                                className={`flex flex-col items-center text-center ${inst.widthClass} min-w-[140px] flex-1 mb-6`}
+                                className="flex flex-col items-center text-center w-[24%] mb-6"
                             >
                                 <img
                                     src={inst.img}
                                     alt={t(inst.nameKey)}
-                                    className="w-40 h-auto mix-blend-multiply"
+                                    className="mix-blend-multiply w-24 h-auto xs:w-28 sm:w-32 md:w-36 lg:w-40"
                                 />
                             </div>
                         ))}
@@ -101,9 +97,9 @@ const Rider = ({ t }) => {
                         <img
                             src={monitors.img}
                             alt="Monitors"
-                            className="w-40 h-auto mb-1 mix-blend-multiply"
+                            className="mix-blend-multiply w-24 h-auto xs:w-28 sm:w-32 md:w-36 lg:w-40 mb-1"
                         />
-                        <div className="text-xs text-neutral-400 mt-1 text-center leading-snug break-words whitespace-normal normal-case">
+                        <div className="text-xs text-neutral-400 mt-1 text-center uppercase leading-snug break-words whitespace-normal">
                             {t(monitors.captionKey)}
                         </div>
                     </div>
