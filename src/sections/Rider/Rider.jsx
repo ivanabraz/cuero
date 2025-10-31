@@ -1,8 +1,7 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-const Rider = ({ t, isOpen, setIsOpen }) => {
-    if (!isOpen) return null;
-
+const Rider = ({ t }) => {
     const instruments = [
         {
             nameKey: "global.piano",
@@ -37,80 +36,79 @@ const Rider = ({ t, isOpen, setIsOpen }) => {
 
     return (
         <div
-            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 condensed"
-            onClick={() => setIsOpen(false)}
+            id="rider"
+            className="w-full bg-neutral-100 text-center py-16 condensed uppercase text-black"
         >
-            <div
-                className="bg-white rounded-lg w-full max-w-4xl mx-auto py-8 px-3 relative"
-                onClick={(e) => e.stopPropagation()}
+            {/* Título */}
+            <motion.p
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+                viewport={{ once: true }}
+                className="text-4xl pb-14"
             >
-                {/* Botón cerrar */}
-                <button
-                    onClick={() => setIsOpen(false)}
-                    className="text-5xl absolute top-3 right-8 text-gray-400 hover:text-gray-800"
-                >
-                    &times;
-                </button>
+                {t("global.rider")}
+            </motion.p>
 
-                {/* Título */}
-                <p className="text-4xl mb-9 uppercase text-center text-black">
-                    {t("global.rider")}
-                </p>
-
-                {/* Contenido principal */}
-                <div className="text-sm text-black w-full">
-                    <div className="relative w-full max-w-3xl mx-auto">
-                        {/* Fila de textos de instrumentos */}
-                        <div className="flex justify-between items-start">
-                            {instruments.map((inst) => (
-                                <div
-                                    key={inst.nameKey + "-text"}
-                                    className={`flex flex-col items-center text-center ${inst.widthClass}`}
-                                >
-                                    <div className="mb-3 px-1">
-                                        <div className="text-neutral-600 text-sm uppercase">
-                                            {t(inst.nameKey)}
-                                        </div>
-                                        <div className="text-xs text-neutral-400 leading-snug break-words whitespace-normal">
-                                            {inst.techKeys.map((key, i) => (
-                                                <div key={i}>{t(key)}</div>
-                                            ))}
-                                        </div>
+            {/* Contenido */}
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 3, ease: "easeInOut" }}
+                viewport={{ once: true }}
+                className="text-sm text-black w-full"
+            >
+                <div className="relative w-full max-w-3xl mx-auto px-5">
+                    {/* fila textos instrumentos */}
+                    <div className="flex flex-wrap justify-between items-start">
+                        {instruments.map((inst) => (
+                            <div
+                                key={inst.nameKey + "-text"}
+                                className={`flex flex-col items-center text-center ${inst.widthClass} min-w-[140px] flex-1`}
+                            >
+                                <div className="mb-3 px-1">
+                                    <div className="text-neutral-600 text-sm uppercase">
+                                        {t(inst.nameKey)}
+                                    </div>
+                                    <div className="text-xs text-neutral-400 leading-snug break-words whitespace-normal">
+                                        {inst.techKeys.map((key, i) => (
+                                            <div key={i}>{t(key)}</div>
+                                        ))}
                                     </div>
                                 </div>
-                            ))}
-                        </div>
-
-                        {/* Fila de imágenes de instrumentos */}
-                        <div className="flex justify-between items-start">
-                            {instruments.map((inst) => (
-                                <div
-                                    key={inst.nameKey + "-img"}
-                                    className={`flex flex-col items-center text-center ${inst.widthClass}`}
-                                >
-                                    <img
-                                        src={inst.img}
-                                        alt={t(inst.nameKey)}
-                                        className="w-40 h-auto"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Monitores */}
-                        <div className="flex flex-col items-center justify-center">
-                            <img
-                                src={monitors.img}
-                                alt="Monitors"
-                                className="w-40 h-auto mb-1"
-                            />
-                            <div className="text-xs text-neutral-400 mt-1 text-center leading-snug break-words whitespace-normal">
-                                {t(monitors.captionKey)}
                             </div>
+                        ))}
+                    </div>
+
+                    {/* fila imágenes instrumentos */}
+                    <div className="flex flex-wrap justify-between items-start">
+                        {instruments.map((inst) => (
+                            <div
+                                key={inst.nameKey + "-img"}
+                                className={`flex flex-col items-center text-center ${inst.widthClass} min-w-[140px] flex-1 mb-6`}
+                            >
+                                <img
+                                    src={inst.img}
+                                    alt={t(inst.nameKey)}
+                                    className="w-40 h-auto mix-blend-multiply"
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Monitors */}
+                    <div className="flex flex-col items-center justify-center max-w-sm mx-auto text-center">
+                        <img
+                            src={monitors.img}
+                            alt="Monitors"
+                            className="w-40 h-auto mb-1 mix-blend-multiply"
+                        />
+                        <div className="text-xs text-neutral-400 mt-1 text-center leading-snug break-words whitespace-normal normal-case">
+                            {t(monitors.captionKey)}
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 };

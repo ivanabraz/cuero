@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from 'react-i18next';
 import Header from '../sections/Header/Header';
 import About from "../sections/About/About";
@@ -12,19 +12,18 @@ import VideoPlayer from "../components/VideoPlayer/VideoPlayer";
 
 const Home = () => {
     const { t } = useTranslation();
-    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
             <Header t={t} />
             <VideoPlayer />
-            <About t={t} setIsOpen={setIsOpen} />
+            <About t={t}/>
             <Members t={t} />
             <Calendar t={t}/>
             <Songs t={t} />
             <Press t={t}/>
             <Contact t={t}/>
-            <Rider t={t} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <Rider t={t}/>
         </>
     );
 }
