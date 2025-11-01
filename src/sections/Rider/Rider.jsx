@@ -33,7 +33,7 @@ const Rider = ({ t }) => {
     return (
         <div
             id="rider"
-            className="w-full bg-neutral-100 text-center py-16 condensed uppercase text-black"
+            className="w-full bg-neutral-100 text-center py-10 xs:py-14 sm:py-16 condensed text-black"
         >
             {/* Título */}
             <motion.p
@@ -41,7 +41,7 @@ const Rider = ({ t }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 2, ease: "easeInOut" }}
                 viewport={{ once: true }}
-                className="text-4xl pb-14"
+                className="text-2xl xs:text-3xl sm:text-4xl pb-8 xs:pb-10 sm:pb-14 uppercase"
             >
                 {t("global.rider")}
             </motion.p>
@@ -52,21 +52,22 @@ const Rider = ({ t }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 3, ease: "easeInOut" }}
                 viewport={{ once: true }}
-                className="text-sm text-black w-full"
+                className="text-[11px] leading-tight xs:text-xs xs:leading-snug sm:text-sm sm:leading-snug text-black w-full"
             >
-                <div className="relative w-full max-w-3xl mx-auto px-5">
+                <div className="relative w-full max-w-3xl sm:max-w-4xl lg:max-w-4xl xl:max-w-4xl mx-auto px-3 xs:px-5 lg:px-8">
+                    
                     {/* fila textos instrumentos */}
-                    <div className="flex justify-between items-start flex-wrap">
+                    <div className="flex justify-around items-start flex-wrap">
                         {instruments.map((inst) => (
                             <div
                                 key={inst.nameKey + "-text"}
-                                className="flex flex-col items-center text-center w-[24%]"
+                                className="flex flex-col items-center text-center w-[24%] mb-2"
                             >
-                                <div className="mb-3 px-1">
-                                    <div className="text-neutral-600 text-sm uppercase">
+                                <div className="mb-2 px-1">
+                                    <div className="text-neutral-600 uppercase text-[11px] xs:text-sm sm:text-sm">
                                         {t(inst.nameKey)}
                                     </div>
-                                    <div className="text-xs text-neutral-400 leading-snug break-words whitespace-normal">
+                                    <div className="text-neutral-400 text-[10px] xs:text-[11px] sm:text-sm leading-tight xs:leading-snug break-words whitespace-normal">
                                         {inst.techKeys.map((key, i) => (
                                             <div key={i}>{t(key)}</div>
                                         ))}
@@ -77,7 +78,7 @@ const Rider = ({ t }) => {
                     </div>
 
                     {/* fila imágenes instrumentos */}
-                    <div className="flex justify-between items-start flex-wrap">
+                    <div className="flex justify-around items-start flex-wrap">
                         {instruments.map((inst) => (
                             <div
                                 key={inst.nameKey + "-img"}
@@ -86,20 +87,20 @@ const Rider = ({ t }) => {
                                 <img
                                     src={inst.img}
                                     alt={t(inst.nameKey)}
-                                    className="mix-blend-multiply w-24 h-auto xs:w-28 sm:w-32 md:w-36 lg:w-40"
+                                    className="mix-blend-multiply w-20 xs:w-24 sm:w-28 md:w-32 lg:w-36 h-auto"
                                 />
                             </div>
                         ))}
                     </div>
 
                     {/* Monitors */}
-                    <div className="flex flex-col items-center justify-center max-w-sm mx-auto text-center">
+                    <div className="flex flex-col items-center justify-center max-w-sm mx-auto text-center mt-4">
                         <img
                             src={monitors.img}
                             alt="Monitors"
-                            className="mix-blend-multiply w-24 h-auto xs:w-28 sm:w-32 md:w-36 lg:w-40 mb-1"
+                            className="mix-blend-multiply w-20 xs:w-24 sm:w-28 md:w-32 lg:w-36 h-auto mb-1"
                         />
-                        <div className="text-xs text-neutral-400 mt-1 text-center uppercase leading-snug break-words whitespace-normal">
+                        <div className="text-neutral-400 text-[10px] xs:text-[11px] sm:text-sm mt-1 leading-tight xs:leading-snug break-words whitespace-normal">
                             {t(monitors.captionKey)}
                         </div>
                     </div>
