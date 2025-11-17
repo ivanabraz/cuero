@@ -14,6 +14,7 @@ const NavBar = ({ onLanguageChange, currentLanguage }) => {
             { name: t('global.calendar'), href: 'calendar' },
             { name: t('global.songs'), href: 'songs' },
             { name: t('global.press'), href: 'press' },
+            { name: t('global.images'), href: 'images' },
             { name: t('global.contact'), href: 'contact' },
         ],
         social: [

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from 'react-router-dom';
 import NavBarLanguage from "./NavBarLanguage";
 import NavBarLogo from "./NavBarLogo";
 
@@ -31,7 +30,7 @@ const NavBarMobile = ({ logo, navigation, scrolled }) => {
             {/* Menú Mobile */}
             {open && (
                 <div className="fixed inset-0 flex z-50 lg:hidden">
-                    <div className="relative w-full bg-white p-6 flex flex-col overflow-y-auto transform transition-transform duration-300">
+                    <div className="relative w-full bg-white p-6 flex flex-col overflow-y-auto transform transition-transform duration-[700ms] duration-300">
                         {/* Botón para cerrar el menú */}
                         <div className="flex justify-start mb-10 relative z-10">
                             <button
@@ -49,14 +48,14 @@ const NavBarMobile = ({ logo, navigation, scrolled }) => {
                             {/* Links de navegación */}
                             <div className="space-y-12 text-center relative">
                                 {navigation.sections.map((item) => (
-                                    <Link
+                                    <a
                                         key={item.name}
-                                        to={item.href}
+                                        href={`#${item.href}`}
                                         className="block text-xl uppercase condensed text-black"
                                         onClick={() => setOpen(false)}
                                     >
                                         {item.name}
-                                    </Link>
+                                    </a>
                                 ))}
                             </div>
                             {/* Redes sociales */}

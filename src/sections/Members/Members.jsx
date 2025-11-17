@@ -25,16 +25,28 @@ const Members = ({ t }) => {
                         href={"https://www.instagram.com/" + member.social}
                         target="_blank"
                         rel="noopener noreferrer"
-                        key={uuidv4()} className="relative"
-                        >
-                        <img
-                            className="aspect-[3/4] object-cover w-full h-full"
-                            alt={member.name}
-                            src={`${process.env.PUBLIC_URL}/images/photos/${member.img}.jpg`}
+                        key={uuidv4()}
+                        className="relative group"
+                    >
+                        {/* Contenedor que controla el scale */}
+                        <div className="w-full h-full overflow-hidden">
+                            <img
+                                className="aspect-[3/4] object-cover w-full h-full 
+                                           transition-transform duration-[700ms] 
+                                           group-hover:scale-[1.05]"
+                                alt={member.name}
+                                src={`${process.env.PUBLIC_URL}/images/photos/${member.img}.jpg`}
+                            />
+                        </div>
+
+                        {/* Gradiente inferior */}
+                        <div className="absolute bottom-0 left-0 w-full h-1/2 
+                                        bg-gradient-to-t from-black/60 to-transparent 
+                                        pointer-events-none" 
                         />
-                        {/* Gradiente que cubre solo hasta la mitad inferior de la imagen */}
-                        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
-                        <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
+
+                        {/* Texto */}
+                        <div className="absolute inset-0 flex flex-col justify-end p-4 text-white pointer-events-none">
                             <div className="flex justify-between items-end w-full">
                                 <div className="flex flex-col">
                                     <p className="uppercase">{member.name}</p>

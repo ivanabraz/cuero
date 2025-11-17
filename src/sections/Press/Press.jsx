@@ -7,10 +7,8 @@ const Press = ({ t }) => {
     const [pressData, setPressData] = useState([]);
     const [showAll, setShowAll] = useState(false);
 
-    // URL de tu Google Apps Script
     const DATA_URL = 'https://script.google.com/macros/s/AKfycbyKz7fnNcwpBJVXXwDjtbNpI4ntfzweat9VlET__yC4WvQFiBdJoxPV5QcjmQniE3tYXA/exec';
 
-    // Fetch de datos del Google Sheets
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -19,13 +17,9 @@ const Press = ({ t }) => {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
                 const data = await res.json();
-                console.log("Data fetched:", data); // Log para verificar los datos
-                
-                // Verifica si hay datos y los establece en el estado
+
                 if (data && Array.isArray(data)) {
                     setPressData(data);
-                } else {
-                    console.log("No hay notas disponibles");
                 }
             } catch (error) {
                 console.error("Error al obtener los datos:", error);
@@ -35,11 +29,8 @@ const Press = ({ t }) => {
         fetchData();
     }, []);
 
-    const toggleShowAll = () => {
-        setShowAll(!showAll);
-    };
+    const toggleShowAll = () => setShowAll(!showAll);
 
-    // Filtrar notas con ShowOnWebsite en true
     const visiblePressData = pressData.filter(media => media.ShowOnWebsite);
     const displayedItems = showAll ? visiblePressData : visiblePressData.slice(0, 4);
     const hiddenItemsCount = visiblePressData.length - 4;
@@ -55,6 +46,7 @@ const Press = ({ t }) => {
             >
                 {t('global.press')}
             </motion.p>
+
             <motion.div 
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -64,35 +56,71 @@ const Press = ({ t }) => {
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-5">
                     {displayedItems.length > 0 ? (
-                        displayedItems.map((media, index) => (
-                            <div key={index} className="w-full">
-                                <img
-                                    src={`${process.env.PUBLIC_URL}/images/press/${media.ID}.png` || 'https://placehold.co/400'}
-                                    alt={media.Name || 'Media'}
-                                    className="aspect-square xs:mt-5 md:mt-0"
-                                />
-                                <div className="flex flex-row justify-between mt-2">
-                                    <p>{media.Name}</p>
+                        displayedItems.map((media, index) => {
+                            const imgSrc = `${process.env.PUBLIC_URL}/images/press/${media.ID}.png` || 'https://placehold.co/400';
+
+                            const imageBlock = (
+                                <div className="relative w-full overflow-hidden group xs:mt-5 md:mt-0">
+                                    <img
+                                        src={imgSrc}
+                                        alt={media.Name || 'Media'}
+                                        className="aspect-square w-full h-full object-cover 
+                                                transition-transform duration-[700ms] 
+                                                group-hover:scale-[1.05]"
+                                    />
+                                </div>
+                            );
+
+                            return (
+                                <div key={index} className="w-full">
+                                    
                                     {media.Link ? (
                                         <a
                                             href={media.Link}
-                                            className="text-emerald-400 whitespace-nowrap flex items-center"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            {t('global.readnote')} <ArrowUpRightIcon className="h-4 w-4 ml-1 relative top-[0.05em]" />
+                                            {imageBlock}
                                         </a>
                                     ) : (
-                                        <span className="text-neutral-400"></span>
+                                        imageBlock
                                     )}
+
+                                    <div className="flex flex-row justify-between mt-2">
+                                        <p>{media.Name}</p>
+
+                                        {media.Link ? (
+                                            <a
+                                                href={media.Link}
+                                                className="text-emerald-400 whitespace-nowrap flex items-center group"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <span
+                                                    className="border-b border-transparent 
+                                                            group-hover:border-emerald-400 
+                                                            transition-[border-color] 
+                                                            duration-[700ms]"
+                                                >
+                                                    {t('global.readnote')}
+                                                </span>
+                                                <ArrowUpRightIcon
+                                                    className="h-4 w-4 ml-1 relative top-[0.05em]"
+                                                />
+                                            </a>
+                                        ) : (
+                                            <span className="text-neutral-400"></span>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        ))
+                            );
+                        })
                     ) : (
                         <p className="text-neutral-400 m-auto text-center">No hay notas disponibles</p>
                     )}
                 </div>
             </motion.div>
+
             {hiddenItemsCount > 0 && (
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}

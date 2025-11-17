@@ -27,7 +27,7 @@ const NavBarDesktop = ({ navigation }) => {
                     <div key={uuidv4()} className="self-center">
                         <a 
                             href={`#${page.href}`}
-                            className={`transition-all duration-700 ease-in-out border-b border-transparent 
+                            className={`transition-all duration-[700ms] ease-in-out border-b border-transparent 
                                 ${scrolled ? 'hover:border-black text-black' : 'hover:border-white text-white'}`}
                         >
                             {page.name}
@@ -41,7 +41,7 @@ const NavBarDesktop = ({ navigation }) => {
                         <a 
                             key={uuidv4()}
                             href={"https://" + page.href}
-                            className={`hover:text-gray-400 transition-colors ${scrolled ? 'text-black' : 'text-white'}`}
+                            className={`hover:text-gray-300 transition-colors duration-[700ms] ${scrolled ? 'text-black' : 'text-white'}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

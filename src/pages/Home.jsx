@@ -9,6 +9,7 @@ import Contact from "../sections/Contact/Contact";
 import Rider from "../sections/Rider/Rider";
 import Members from "../sections/Members/Members";
 import VideoPlayer from "../components/VideoPlayer/VideoPlayer";
+import Images from "../sections/Images/Images";
 
 const Home = () => {
     const { t } = useTranslation();
@@ -22,8 +23,9 @@ const Home = () => {
             <Calendar t={t}/>
             <Songs t={t} />
             <Press t={t}/>
-            <Contact t={t}/>
+            <Images t={t}/>
             <Rider t={t}/>
+            <Contact t={t}/>
         </>
     );
 }
