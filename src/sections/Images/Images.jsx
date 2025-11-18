@@ -28,7 +28,7 @@
             let finalName = "Cuero Tango";
 
             if (year && place && credit) {
-                finalName = `Cuero Tango (${year}) ${place} - Foto ${credit}`;
+                finalName = `Cuero Tango (${year}) ${place} - © ${credit}`;
             }
 
             const link = document.createElement("a");
